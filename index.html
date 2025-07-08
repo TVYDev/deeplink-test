@@ -544,7 +544,10 @@
           return "ios";
         } else if (/android/i.test(userAgent)) {
           return "android";
+        } else if (/windows|mac|linux|cros/i.test(userAgent)) {
+          return "desktop";
         }
+        
         return "unknown";
       }
 
@@ -555,6 +558,14 @@
           document.getElementById("androidBtn").style.display = "none";
         } else if (device === "android") {
           document.getElementById("iosBtn").style.display = "none";
+        }
+      }
+
+      function redierctToHatthaWebsiteForDesktop() {
+        const device = detectDevice();
+
+        if (device === "desktop") {
+          window.location.href = "https://www.hatthabank.com";
         }
       }
 
@@ -698,6 +709,7 @@
 
       // Initialize particles when page loads
       window.addEventListener("load", () => {
+        redierctToHatthaWebsiteForDesktop();
         createParticles();
       });
 
