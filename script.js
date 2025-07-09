@@ -160,7 +160,7 @@ function handleAppDownload(platform) {
 
     if (device === platform && appSchemes[device]) {
       // Try to open the app
-      window.location.href = appSchemes[device];
+      // window.location.href = appSchemes[device];
 
       // Fallback to store after a short delay
       setTimeout(() => {
