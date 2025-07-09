@@ -47,7 +47,7 @@ function doActionBasedOnDeviceType() {
   if (device === "desktop") {
     window.location.href = "https://www.hatthabank.com";
   } else if (device === "ios" || device === "android") {
-    handleAppDownload(device);
+    handleAppDownload2(device);
   }
 }
 
@@ -149,32 +149,32 @@ function handleAppDownload(platform) {
   );
 }
 
-//   function handleAppDownload(platform) {
-//     const device = detectDevice();
+  function handleAppDownload2(platform) {
+    const device = detectDevice();
 
-//     // Try to open the app first (deep link)
-//     const appSchemes = {
-//       ios: "hattha-mobile://",
-//       android: "intent://open#Intent;package=com.kh.hkl.mobilebanking;end",
-//     };
+    // Try to open the app first (deep link)
+    const appSchemes = {
+      ios: "hattha-mobile://",
+      android: "intent://open#Intent;package=com.kh.hkl.mobilebanking;end",
+    };
 
-//     if (device === platform && appSchemes[device]) {
-//       // Try to open the app
-//       window.location.href = appSchemes[device];
+    if (device === platform && appSchemes[device]) {
+      // Try to open the app
+      window.location.href = appSchemes[device];
 
-//       // Fallback to store after a short delay
-//       setTimeout(() => {
-//         if (document.hidden || document.webkitHidden) {
-//           return; // App probably opened
-//         }
-//         // Redirect to store
-//         window.location.href =
-//           platform === "ios"
-//             ? "https://apps.apple.com/us/app/hattha-mobile/id1493188010"
-//             : "https://play.google.com/store/apps/details?id=com.kh.hkl.mobilebanking";
-//       }, 2000);
-//     }
-//   }
+      // Fallback to store after a short delay
+      setTimeout(() => {
+        if (document.hidden || document.webkitHidden) {
+          return; // App probably opened
+        }
+        // Redirect to store
+        window.location.href =
+          platform === "ios"
+            ? "https://apps.apple.com/us/app/hattha-mobile/id1493188010"
+            : "https://play.google.com/store/apps/details?id=com.kh.hkl.mobilebanking";
+      }, 2000);
+    }
+  }
 
 // Add click handlers
 document.getElementById("iosBtn").addEventListener("click", function (e) {
