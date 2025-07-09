@@ -46,10 +46,8 @@ function doActionBasedOnDeviceType() {
 
   if (device === "desktop") {
     window.location.href = "https://www.hatthabank.com";
-  } else if (device === "ios") {
-    handleAppDownload("ios");
-  } else if (device === "android") {
-    handleAppDownload("android");
+  } else if (device === "ios" || device === "android") {
+    handleAppDownload(device);
   }
 }
 
