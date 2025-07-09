@@ -68,13 +68,13 @@ function handleAppDownload(platform) {
   let appUrl = "hatthabank://";
   // if (path !== "/") appUrl += path.replace(/^\//, "");
 
-  const params = new URLSearchParams();
-  if (action) params.append("action", action);
-  if (id) params.append("id", id);
+  // const params = new URLSearchParams();
+  // if (action) params.append("action", action);
+  // if (id) params.append("id", id);
 
-  if (params.toString()) {
-    appUrl += (appUrl.includes("?") ? "&" : "?") + params.toString();
-  }
+  // if (params.toString()) {
+  //   appUrl += (appUrl.includes("?") ? "&" : "?") + params.toString();
+  // }
 
   console.log("Attempting to open app:", appUrl);
   // statusMessage.textContent = "Opening app...";
