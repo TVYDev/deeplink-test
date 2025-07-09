@@ -66,7 +66,7 @@ function handleAppDownload(platform) {
 
   // Build app URL
   let appUrl = "hatthabank://";
-  if (path !== "/") appUrl += path.replace(/^\//, "");
+  // if (path !== "/") appUrl += path.replace(/^\//, "");
 
   const params = new URLSearchParams();
   if (action) params.append("action", action);
