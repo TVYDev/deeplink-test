@@ -18,8 +18,7 @@ function createParticles() {
 
 // Device detection and deep linking
 function detectDevice() {
-  const userAgent =
-    navigator.userAgent || navigator.vendor || window.opera;
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
   if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
     return "ios";
@@ -28,7 +27,7 @@ function detectDevice() {
   } else if (/windows|mac|linux|cros/i.test(userAgent)) {
     return "desktop";
   }
-  
+
   return "unknown";
 }
 
@@ -42,11 +41,15 @@ function handleShowButtonDownload() {
   }
 }
 
-function redierctToHatthaWebsiteForDesktop() {
+function doActionBasedOnDeviceType() {
   const device = detectDevice();
 
   if (device === "desktop") {
     window.location.href = "https://www.hatthabank.com";
+  } else if (device === "ios") {
+    handleAppDownload("ios");
+  } else if (device === "android") {
+    handleAppDownload("android");
   }
 }
 
@@ -181,16 +184,14 @@ document.getElementById("iosBtn").addEventListener("click", function (e) {
   handleAppDownload("ios");
 });
 
-document
-  .getElementById("androidBtn")
-  .addEventListener("click", function (e) {
-    e.preventDefault();
-    handleAppDownload("android");
-  });
+document.getElementById("androidBtn").addEventListener("click", function (e) {
+  e.preventDefault();
+  handleAppDownload("android");
+});
 
 // Initialize particles when page loads
 window.addEventListener("load", () => {
-  redierctToHatthaWebsiteForDesktop();
+  doActionBasedOnDeviceType();
   createParticles();
 });
 
