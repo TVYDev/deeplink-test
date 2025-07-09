@@ -154,7 +154,7 @@ function handleAppDownload(platform) {
 
     // Try to open the app first (deep link)
     const appSchemes = {
-      ios: "hattha-mobile://",
+      ios: "hatthabank://",
       android: "intent://open#Intent;package=com.kh.hkl.mobilebanking;end",
     };
 
