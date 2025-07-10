@@ -44,13 +44,13 @@ function handleShowButtonDownload() {
 function doActionBasedOnDeviceType() {
   document.getElementById("app_link").click();
   
-  const device = detectDevice();
+  // const device = detectDevice();
 
-  if (device === "desktop") {
-    window.location.href = "https://www.hatthabank.com";
-  } else if (device === "ios" || device === "android") {
-    handleAppDownload(device);
-  }
+  // if (device === "desktop") {
+  //   window.location.href = "https://www.hatthabank.com";
+  // } else if (device === "ios" || device === "android") {
+  //   handleAppDownload(device);
+  // }
 }
 
 function handleAppDownload(platform) {
