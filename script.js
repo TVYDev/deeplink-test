@@ -189,7 +189,7 @@ document.getElementById("androidBtn").addEventListener("click", function (e) {
 
 // Initialize particles when page loads
 window.addEventListener("load", () => {
-  doActionBasedOnDeviceType();
+  // doActionBasedOnDeviceType();
   createParticles();
 });
 
