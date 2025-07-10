@@ -93,7 +93,7 @@ function handleAppDownload(platform) {
       window.location.href = intentUrl;
     } else if (isIOS) {
       // iOS: Try app scheme
-      window.location.href = `hatthabank://`;
+      window.location.href = `hatthabank://open`;
       
     }
 
