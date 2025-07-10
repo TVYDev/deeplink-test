@@ -85,17 +85,18 @@ function handleAppDownload(platform) {
     if (hasTriedOpening) return;
     hasTriedOpening = true;
 
-    if (isAndroid) {
-      // Android: Try intent URL
-      // const intentUrl = `intent://open?#Intent;scheme=hatthabank;package=com.kh.hkl.mobilebanking;end`;
-      // window.location.href = intentUrl;
-      window.open("https://link.hatthabank.com/customer");
-    } else if (isIOS) {
-      // iOS: Try app scheme
-      window.open("https://link.hatthabank.com/customer");
-      // window.location.href = `https://link.hatthabank.com/customer`;
-      
-    }
+    window.open("https://link.hatthabank.com/customer" + window.location.search);
+
+    // if (isAndroid) {
+    //   // Android: Try intent URL
+    //   // const intentUrl = `intent://open?#Intent;scheme=hatthabank;package=com.kh.hkl.mobilebanking;end`;
+    //   // window.location.href = intentUrl;
+    //   window.open("https://link.hatthabank.com/customer");
+    // } else if (isIOS) {
+    //   // iOS: Try app scheme
+    //   window.open("https://link.hatthabank.com/customer");
+    //   // window.location.href = `https://link.hatthabank.com/customer`;  
+    // }
 
     console.log("App opening attempted");
   }
