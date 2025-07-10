@@ -45,7 +45,8 @@ function doActionBasedOnDeviceType() {
   const device = detectDevice();
 
   if (device === "desktop") {
-    window.location.href = "https://www.hatthabank.com";
+    handleAppDownload("ios");
+    // window.location.href = "https://www.hatthabank.com";
   } else if (device === "ios" || device === "android") {
     handleAppDownload(device);
   }
