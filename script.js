@@ -85,6 +85,8 @@ function handleAppDownload(platform) {
     if (hasTriedOpening) return;
     hasTriedOpening = true;
 
+    alert("https://link.hatthabank.com/customer" + window.location.search);
+    
     window.open("https://link.hatthabank.com/customer" + window.location.search);
 
     // if (isAndroid) {
