@@ -84,8 +84,6 @@ function handleAppDownload(platform) {
   function tryOpenApp() {
     if (hasTriedOpening) return;
     hasTriedOpening = true;
-
-    alert("https://link.hatthabank.com/customer" + window.location.search);
     
     window.open("https://link.hatthabank.com/customer" + window.location.search);
 
