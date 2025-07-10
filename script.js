@@ -93,10 +93,10 @@ function handleAppDownload(platform) {
         /^\//,
         ""
       )}#Intent;scheme=hatthabank;package=com.kh.hkl.mobilebanking;end`;
-      window.location.href = intentUrl;
+      window.location.href = "https://google.com";
     } else if (isIOS) {
       // iOS: Try app scheme
-      window.location.href = appUrl;
+      window.location.href = "https://nextjs.org";
     }
 
     console.log("App opening attempted");
