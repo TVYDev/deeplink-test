@@ -89,14 +89,11 @@ function handleAppDownload(platform) {
 
     if (isAndroid) {
       // Android: Try intent URL
-      const intentUrl = `intent://${path.replace(
-        /^\//,
-        ""
-      )}#Intent;scheme=hatthabank;package=com.kh.hkl.mobilebanking;end`;
-      window.location.href = "https://google.com";
+      const intentUrl = `intent://open?#Intent;scheme=hatthabank;package=com.kh.hkl.mobilebanking;end`;
+      window.location.href = intentUrl;
     } else if (isIOS) {
       // iOS: Try app scheme
-      window.location.href = "https://nextjs.org";
+      window.location.href = `hatthabank://com.kh.hkl.mobilebanking`;
     }
 
     console.log("App opening attempted");
