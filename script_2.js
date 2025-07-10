@@ -113,6 +113,8 @@ function handleAppDownload(platform) {
     }
   }
 
+  redirectToStore();
+
   // Function to try opening the app
   function tryOpenApp() {
     if (hasTriedOpening) return;
