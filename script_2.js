@@ -97,8 +97,8 @@ function handleAppDownload(platform) {
 
   // Function to redirect to app store
   function redirectToStore() {
-    if (fallbackTriggered) return;
-    fallbackTriggered = true;
+    // if (fallbackTriggered) return;
+    // fallbackTriggered = true;
     
     console.log("Redirecting to store for platform:", platform);
     
