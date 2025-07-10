@@ -66,15 +66,15 @@ function handleAppDownload(platform) {
 
   // Build app URL
   let appUrl = "hatthabank://";
-  // if (path !== "/") appUrl += path.replace(/^\//, "");
+  if (path !== "/") appUrl += path.replace(/^\//, "");
 
-  // const params = new URLSearchParams();
-  // if (action) params.append("action", action);
-  // if (id) params.append("id", id);
+  const params = new URLSearchParams();
+  if (action) params.append("action", action);
+  if (id) params.append("id", id);
 
-  // if (params.toString()) {
-  //   appUrl += (appUrl.includes("?") ? "&" : "?") + params.toString();
-  // }
+  if (params.toString()) {
+    appUrl += (appUrl.includes("?") ? "&" : "?") + params.toString();
+  }
 
   console.log("Attempting to open app:", appUrl);
   // statusMessage.textContent = "Opening app...";
@@ -149,32 +149,32 @@ function handleAppDownload(platform) {
   );
 }
 
-  function handleAppDownload2(platform) {
-    const device = detectDevice();
+//   function handleAppDownload(platform) {
+//     const device = detectDevice();
 
-    // Try to open the app first (deep link)
-    const appSchemes = {
-      ios: "hatthabank://",
-      android: "intent://open#Intent;package=com.kh.hkl.mobilebanking;end",
-    };
+//     // Try to open the app first (deep link)
+//     const appSchemes = {
+//       ios: "hattha-mobile://",
+//       android: "intent://open#Intent;package=com.kh.hkl.mobilebanking;end",
+//     };
 
-    if (device === platform && appSchemes[device]) {
-      // Try to open the app
-      // window.location.href = appSchemes[device];
+//     if (device === platform && appSchemes[device]) {
+//       // Try to open the app
+//       window.location.href = appSchemes[device];
 
-      // Fallback to store after a short delay
-      setTimeout(() => {
-        if (document.hidden || document.webkitHidden) {
-          return; // App probably opened
-        }
-        // Redirect to store
-        window.location.href =
-          platform === "ios"
-            ? "https://apps.apple.com/us/app/hattha-mobile/id1493188010"
-            : "https://play.google.com/store/apps/details?id=com.kh.hkl.mobilebanking";
-      }, 2000);
-    }
-  }
+//       // Fallback to store after a short delay
+//       setTimeout(() => {
+//         if (document.hidden || document.webkitHidden) {
+//           return; // App probably opened
+//         }
+//         // Redirect to store
+//         window.location.href =
+//           platform === "ios"
+//             ? "https://apps.apple.com/us/app/hattha-mobile/id1493188010"
+//             : "https://play.google.com/store/apps/details?id=com.kh.hkl.mobilebanking";
+//       }, 2000);
+//     }
+//   }
 
 // Add click handlers
 document.getElementById("iosBtn").addEventListener("click", function (e) {
