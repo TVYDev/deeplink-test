@@ -93,7 +93,8 @@ function handleAppDownload(platform) {
       window.location.href = intentUrl;
     } else if (isIOS) {
       // iOS: Try app scheme
-      window.location.href = `hatthabank://com.kh.hkl.mobilebanking`;
+      window.location.href = `hatthabank://`;
+      
     }
 
     console.log("App opening attempted");
