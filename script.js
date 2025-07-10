@@ -93,7 +93,8 @@ function handleAppDownload(platform) {
       window.location.href = intentUrl;
     } else if (isIOS) {
       // iOS: Try app scheme
-      window.location.href = `https://link.hatthabank.com/customer`;
+      window.open("https://link.hatthabank.com/customer");
+      // window.location.href = `https://link.hatthabank.com/customer`;
       
     }
 
