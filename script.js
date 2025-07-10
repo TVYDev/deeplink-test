@@ -91,10 +91,10 @@ function handleAppDownload(platform) {
       // Android: Try intent URL
       // const intentUrl = `intent://open?#Intent;scheme=hatthabank;package=com.kh.hkl.mobilebanking;end`;
       // window.location.href = intentUrl;
-      window.open("https://link.hatthabank.com/customer");
+      window.open("https://link.hatthabank.com/customer", "_blank");
     } else if (isIOS) {
       // iOS: Try app scheme
-      window.open("https://link.hatthabank.com/customer");
+      window.open("https://link.hatthabank.com/customer", "_blank");
       // window.location.href = `https://link.hatthabank.com/customer`;
       
     }
