@@ -1,5 +1,3 @@
-handleShowButtonDownload();
-
 // Create animated particles
 function createParticles() {
   const particlesContainer = document.getElementById("particles");
@@ -49,104 +47,114 @@ function doActionBasedOnDeviceType() {
   }
 }
 
-function handleAppDownload(platform) {
-  const isIOS = platform === "ios";
-  const isAndroid = platform === "android";
-
-  // const statusMessage = document.getElementById("statusMessage");
-  const container = document.querySelector(".container");
-
-  // Get deeplink parameters
-  const urlParams = new URLSearchParams(window.location.search);
-  const path = urlParams.get("path") || "/";
-  const action = urlParams.get("action") || "";
-  const id = urlParams.get("id") || "";
-
-  // Build app URL
-  let appUrl = "hatthabank://";
-  if (path !== "/") appUrl += path.replace(/^\//, "");
-
-  const params = new URLSearchParams();
-  if (action) params.append("action", action);
-  if (id) params.append("id", id);
-
-  if (params.toString()) {
-    appUrl += (appUrl.includes("?") ? "&" : "?") + params.toString();
-  }
-
-  console.log("Attempting to open app:", appUrl);
-  // statusMessage.textContent = "Opening app...";
-
-  const startTime = Date.now();
-  let hasTriedOpening = false;
-
-  // Simplified approach: Try to open app, then quickly fallback
-  function tryOpenApp() {
-    if (hasTriedOpening) return;
-    hasTriedOpening = true;
-    
-    window.open("https://link.hatthabank.com/customer" + window.location.search);
-
-    // if (isAndroid) {
-    //   // Android: Try intent URL
-    //   // const intentUrl = `intent://open?#Intent;scheme=hatthabank;package=com.kh.hkl.mobilebanking;end`;
-    //   // window.location.href = intentUrl;
-    //   window.open("https://link.hatthabank.com/customer");
-    // } else if (isIOS) {
-    //   // iOS: Try app scheme
-    //   window.open("https://link.hatthabank.com/customer");
-    //   // window.location.href = `https://link.hatthabank.com/customer`;  
-    // }
-
-    console.log("App opening attempted");
-  }
-
-  // Quick detection with short timeout
-  function showDownloadFallback() {
-    container.classList.remove("checking");
-    //   statusMessage.textContent = "Choose your platform:";
-    //   document.getElementById("downloadButtons").style.display = "flex";
-    console.log("Showing download fallback");
-  }
-
-  // Try opening app immediately
-  tryOpenApp();
-
-  // Simple timeout - if page is still visible after 1.5 seconds, show download
-  setTimeout(() => {
-    if (!document.hidden) {
-      showDownloadFallback();
-    }
-  }, 1500);
-
-  // If page becomes hidden quickly, app likely opened
-  document.addEventListener(
-    "visibilitychange",
-    function () {
-      if (document.hidden) {
-        const timeTaken = Date.now() - startTime;
-        if (timeTaken < 3000) {
-          console.log("App opened (page hidden)");
-          // statusMessage.textContent = "App opened!";
-        }
-      }
-    },
-    { once: true }
-  );
-
-  // If user comes back to page, show download
-  window.addEventListener(
-    "focus",
-    function () {
-      setTimeout(() => {
-        if (hasTriedOpening) {
-          showDownloadFallback();
-        }
-      }, 500);
-    },
-    { once: true }
-  );
+function updateHrefForDownloadButtons() {
+  const updatedHref =
+    "https://link.hatthabank.com/customer" + window.location.search;
+  document.getElementById("iosBtn").setAttribute("href", updatedHref);
+  document.getElementById("androidBtn").setAttribute("href", updatedHref);
 }
+
+// function handleAppDownload(platform) {
+//   const isIOS = platform === "ios";
+//   const isAndroid = platform === "android";
+
+//   // const statusMessage = document.getElementById("statusMessage");
+//   const container = document.querySelector(".container");
+
+//   // Get deeplink parameters
+//   const urlParams = new URLSearchParams(window.location.search);
+//   const path = urlParams.get("path") || "/";
+//   const action = urlParams.get("action") || "";
+//   const id = urlParams.get("id") || "";
+
+//   // Build app URL
+//   let appUrl = "hatthabank://";
+//   if (path !== "/") appUrl += path.replace(/^\//, "");
+
+//   const params = new URLSearchParams();
+//   if (action) params.append("action", action);
+//   if (id) params.append("id", id);
+
+//   if (params.toString()) {
+//     appUrl += (appUrl.includes("?") ? "&" : "?") + params.toString();
+//   }
+
+//   console.log("Attempting to open app:", appUrl);
+//   // statusMessage.textContent = "Opening app...";
+
+//   const startTime = Date.now();
+//   let hasTriedOpening = false;
+
+//   // Simplified approach: Try to open app, then quickly fallback
+//   function tryOpenApp() {
+//     if (hasTriedOpening) return;
+//     hasTriedOpening = true;
+
+//     window.open(
+//       "https://link.hatthabank.com/customer" + window.location.search
+//     );
+
+//     // if (isAndroid) {
+//     //   // Android: Try intent URL
+//     //   const intentUrl = `intent://${path.replace(
+//     //     /^\//,
+//     //     ""
+//     //   )}#Intent;scheme=hatthabank;package=com.kh.hkl.mobilebanking;end`;
+//     //   window.location.href = intentUrl;
+//     // } else if (isIOS) {
+//     //   // iOS: Try app scheme
+//     //   window.location.href = appUrl;
+//     // }
+
+//     console.log("App opening attempted");
+//   }
+
+//   // Quick detection with short timeout
+//   function showDownloadFallback() {
+//     container.classList.remove("checking");
+//     //   statusMessage.textContent = "Choose your platform:";
+//     //   document.getElementById("downloadButtons").style.display = "flex";
+//     console.log("Showing download fallback");
+//   }
+
+//   // Try opening app immediately
+//   tryOpenApp();
+
+//   // Simple timeout - if page is still visible after 1.5 seconds, show download
+//   setTimeout(() => {
+//     if (!document.hidden) {
+//       showDownloadFallback();
+//     }
+//   }, 1500);
+
+//   // If page becomes hidden quickly, app likely opened
+//   document.addEventListener(
+//     "visibilitychange",
+//     function () {
+//       if (document.hidden) {
+//         const timeTaken = Date.now() - startTime;
+//         if (timeTaken < 3000) {
+//           console.log("App opened (page hidden)");
+//           // statusMessage.textContent = "App opened!";
+//         }
+//       }
+//     },
+//     { once: true }
+//   );
+
+//   // If user comes back to page, show download
+//   window.addEventListener(
+//     "focus",
+//     function () {
+//       setTimeout(() => {
+//         if (hasTriedOpening) {
+//           showDownloadFallback();
+//         }
+//       }, 500);
+//     },
+//     { once: true }
+//   );
+// }
 
 //   function handleAppDownload(platform) {
 //     const device = detectDevice();
@@ -176,18 +184,20 @@ function handleAppDownload(platform) {
 //   }
 
 // Add click handlers
-document.getElementById("iosBtn").addEventListener("click", function (e) {
-  e.preventDefault();
-  handleAppDownload("ios");
-});
+// document.getElementById("iosBtn").addEventListener("click", function (e) {
+//   e.preventDefault();
+//   handleAppDownload("ios");
+// });
 
-document.getElementById("androidBtn").addEventListener("click", function (e) {
-  e.preventDefault();
-  handleAppDownload("android");
-});
+// document.getElementById("androidBtn").addEventListener("click", function (e) {
+//   e.preventDefault();
+//   handleAppDownload("android");
+// });
 
 // Initialize particles when page loads
 window.addEventListener("load", () => {
+  handleShowButtonDownload();
+  updateHrefForDownloadButtons();
   doActionBasedOnDeviceType();
   createParticles();
 });
