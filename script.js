@@ -51,7 +51,7 @@ function updateHrefForDownloadButtons() {
   const updatedHref =
     "https://link.hatthabank.com/customer" + window.location.search;
   document.getElementById("iosBtn").setAttribute("href", updatedHref);
-  document.getElementById("androidBtn").setAttribute("href", updatedHref);
+  document.getElementById("androidBtn").setAttribute("href", "intent://open?#Intent;scheme=hatthabank;package=com.kh.hkl.mobilebanking;end");
 }
 
 // function handleAppDownload(platform) {
