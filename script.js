@@ -196,6 +196,10 @@ function updateHrefForDownloadButtons() {
 
 // Initialize particles when page loads
 window.addEventListener("load", () => {
+  console.log('frame element', window.frameElement);
+  console.log('frames', window.frames);
+
+  
   handleShowButtonDownload();
   updateHrefForDownloadButtons();
   // doActionBasedOnDeviceType();
