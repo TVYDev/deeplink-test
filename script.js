@@ -198,6 +198,7 @@ function updateHrefForDownloadButtons() {
 window.addEventListener("load", () => {
   console.log('frame element', window.frameElement);
   console.log('frames', window.frames);
+  console.log('Ancestor origins', window.frames.location.ancestorOrigins);
 
   
   handleShowButtonDownload();
