@@ -198,7 +198,7 @@ function updateHrefForDownloadButtons() {
 window.addEventListener("load", () => {
   handleShowButtonDownload();
   updateHrefForDownloadButtons();
-  doActionBasedOnDeviceType();
+  // doActionBasedOnDeviceType();
   createParticles();
 });
 
