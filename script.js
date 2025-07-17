@@ -186,6 +186,7 @@ function updateHrefForDownloadButtons() {
 // Add click handlers
 document.getElementById("iosBtn").addEventListener("click", function (e) {
   e.preventDefault();
+  alert("test");
   try {
     window.open("hatthabank://customer", "_self");
   }
