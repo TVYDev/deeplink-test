@@ -195,16 +195,19 @@ document.getElementById("iosBtn").addEventListener("click", function (e) {
 document.getElementById("androidBtn").addEventListener("click", function (e) {
   e.preventDefault();
 
-  handleAppDownload("android");
+  // handleAppDownload("android");
 
-  // window.location.href = "intent://open/#Intent;scheme=hatthabank;package=com.kh.hkl.mobilebanking;end";
+  try {
+    window.location.replace("intent://open/#Intent;scheme=hatthabank;package=com.kh.hkl.mobilebanking;end");
+  }catch(error) {
+    window.location.replace("https://play.google.com/store/apps/details?id=com.kh.hkl.mobilebanking");
+  }
 
   // setTimeout(() => {
   //   if (document.hidden || document.webkitHidden) {
   //     return; // App probably opened
   //   }
     
-  //   window.location.href = "https://play.google.com/store/apps/details?id=com.kh.hkl.mobilebanking";
   // }, 10000);
 });
 
