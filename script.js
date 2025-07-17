@@ -179,7 +179,13 @@ function handleAppDownload(platform) {
 document.getElementById("iosBtn").addEventListener("click", function (e) {
   e.preventDefault();
 
-  handleAppDownload("ios");
+  // handleAppDownload("ios");
+
+  try {
+    window.location.replace("hatthabank://customer");
+  }catch(error) {
+    window.location.replace("https://apps.apple.com/us/app/hattha-mobile/id1493188010");
+  }
   
   // window.location.href = "hatthabank://customer";
 
