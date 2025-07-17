@@ -186,9 +186,12 @@ function updateHrefForDownloadButtons() {
 // Add click handlers
 document.getElementById("iosBtn").addEventListener("click", function (e) {
   e.preventDefault();
-  alert("test");
   try {
-    window.open("hatthabank://customer", "_self");
+    window.location.href = "hatthabank://customer";
+
+    setTimeout(() => {
+      window.location.href = "https://apps.apple.com/us/app/hattha-mobile/id1493188010";
+    }, 2000);
   }
   catch(error){
     alert("ERROR WEBVIEW");
