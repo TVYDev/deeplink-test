@@ -4,8 +4,12 @@
       "source": "/(.*)",
       "headers" : [
         {
+          "key" : "X-Frame-Options",
+          "value" : "SAMEORIGIN"
+        },
+        {
           "key" : "Content-Security-Policy",
-          "value" : "frame-ancestors 'self' https://parent-webview-test.vercel.app"
+          "value" : "frame-ancestors 'self' https://parents-webview-test.vercel.app"
         }
       ]
     }
