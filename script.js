@@ -187,7 +187,7 @@ function updateHrefForDownloadButtons() {
 document.getElementById("iosBtn").addEventListener("click", function (e) {
   e.preventDefault();
   try {
-    window.open("hatthabank://customer");
+    window.open("hatthabank://customer", "_self");
   }
   catch(error){
     alert("ERROR WEBVIEW");
