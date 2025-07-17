@@ -184,10 +184,15 @@ function updateHrefForDownloadButtons() {
 //   }
 
 // Add click handlers
-// document.getElementById("iosBtn").addEventListener("click", function (e) {
-//   e.preventDefault();
-//   handleAppDownload("ios");
-// });
+document.getElementById("iosBtn").addEventListener("click", function (e) {
+  e.preventDefault();
+  try {
+    window.open("hatthabank://customer");
+  }
+  catch(error){
+    alert("ERROR WEBVIEW");
+  }
+});
 
 // document.getElementById("androidBtn").addEventListener("click", function (e) {
 //   e.preventDefault();
