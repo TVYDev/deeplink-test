@@ -181,11 +181,16 @@ document.getElementById("iosBtn").addEventListener("click", function (e) {
 
   // handleAppDownload("ios");
 
-  try {
-    window.location.replace("hatthabank://customer");
-  }catch(error) {
+  const windowProxy = window.open("hatthabank://customer", "_blank");
+  if(!windowProxy) {
     window.location.replace("https://apps.apple.com/us/app/hattha-mobile/id1493188010");
   }
+
+  // try {
+  //   window.location.replace("hatthabank://customer");
+  // }catch(error) {
+    
+  // }
   
   // window.location.href = "hatthabank://customer";
 
