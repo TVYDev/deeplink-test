@@ -182,6 +182,10 @@ document.getElementById("iosBtn").addEventListener("click", function (e) {
   window.location.href = "hatthabank://customer";
 
   setTimeout(() => {
+    if (document.hidden || document.webkitHidden) {
+      return; // App probably opened
+    }
+    
     window.location.href = "https://apps.apple.com/us/app/hattha-mobile/id1493188010";
   }, 10000);
 });
@@ -192,6 +196,10 @@ document.getElementById("androidBtn").addEventListener("click", function (e) {
   window.location.href = "intent://open/#Intent;scheme=hatthabank;package=com.kh.hkl.mobilebanking;end";
 
   setTimeout(() => {
+    if (document.hidden || document.webkitHidden) {
+      return; // App probably opened
+    }
+    
     window.location.href = "https://play.google.com/store/apps/details?id=com.kh.hkl.mobilebanking";
   }, 10000);
 });
