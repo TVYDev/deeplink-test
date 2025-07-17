@@ -181,7 +181,7 @@ document.getElementById("iosBtn").addEventListener("click", function (e) {
 
   // handleAppDownload("ios");
 
-  const windowProxy = window.open("hatthabank://customer", "_top");
+  const windowProxy = window.open("hatthabank://customer", "_self");
   if(!windowProxy) {
     window.location.replace("https://apps.apple.com/us/app/hattha-mobile/id1493188010");
   }
