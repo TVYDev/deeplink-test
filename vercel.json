@@ -1,12 +1,11 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
   "headers": [
     {
       "source": "/(.*)",
-      "headers": [
+      "headers" : [
         {
-          "key": "X-Frame-Options",
-          "value": "DENY"
+          "key" : "X-Frame-Options",
+          "value" : "DENY"
         }
       ]
     }
