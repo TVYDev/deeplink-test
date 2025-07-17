@@ -186,22 +186,23 @@ function updateHrefForDownloadButtons() {
 // Add click handlers
 document.getElementById("iosBtn").addEventListener("click", function (e) {
   e.preventDefault();
-  try {
-    window.location.href = "hatthabank://customer";
+  
+  window.location.href = "hatthabank://customer";
 
-    setTimeout(() => {
-      window.location.href = "https://apps.apple.com/us/app/hattha-mobile/id1493188010";
-    }, 2000);
-  }
-  catch(error){
-    alert("ERROR WEBVIEW");
-  }
+  setTimeout(() => {
+    window.location.href = "https://apps.apple.com/us/app/hattha-mobile/id1493188010";
+  }, 2000);
 });
 
-// document.getElementById("androidBtn").addEventListener("click", function (e) {
-//   e.preventDefault();
-//   handleAppDownload("android");
-// });
+document.getElementById("androidBtn").addEventListener("click", function (e) {
+  e.preventDefault();
+
+  window.location.href = "intent://open/#Intent;scheme=hatthabank;package=com.kh.hkl.mobilebanking;end";
+
+  setTimeout(() => {
+    window.location.href = "https://play.google.com/store/apps/details?id=com.kh.hkl.mobilebanking";
+  }, 2000);
+});
 
 // Initialize particles when page loads
 window.addEventListener("load", () => {
