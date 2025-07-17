@@ -183,7 +183,7 @@ document.getElementById("iosBtn").addEventListener("click", function (e) {
 
   setTimeout(() => {
     window.location.href = "https://apps.apple.com/us/app/hattha-mobile/id1493188010";
-  }, 2000);
+  }, 10000);
 });
 
 document.getElementById("androidBtn").addEventListener("click", function (e) {
@@ -193,7 +193,7 @@ document.getElementById("androidBtn").addEventListener("click", function (e) {
 
   setTimeout(() => {
     window.location.href = "https://play.google.com/store/apps/details?id=com.kh.hkl.mobilebanking";
-  }, 2000);
+  }, 10000);
 });
 
 // Initialize particles when page loads
